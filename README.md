@@ -1,4 +1,4 @@
-# Signal Bot by [@IAmMandatory](https://twitter.com/IAmMandatory)
+# Signal Messenger Bot by [@IAmMandatory](https://twitter.com/IAmMandatory)
 ## _Signal Desktop Required, Not An Official Signal Client_
 
 ## What is it?
