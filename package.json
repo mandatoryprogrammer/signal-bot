@@ -1,0 +1,15 @@
+{
+  "name": "signal-bot",
+  "version": "1.0.0",
+  "description": "A Signal bot that utilizes the Chrome DevTools protocol to hook the Signal Electron Desktop app for automation.",
+  "main": "signal-hook.js",
+  "dependencies": {
+    "chrome-remote-interface": "^0.28.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mandatory (Matthew Bryant)",
+  "license": "MIT"
+}
