@@ -1,18 +1,18 @@
-# Signal Bot
+# Signal Bot by [@IAmMandatory](https://twitter.com/IAmMandatory)
 ## _Signal Desktop Required, Not An Official Signal Client_
 
 ## What is it?
 
-This is a Node script to automate the Signal Desktop app. You can use it to write Signal bots for secure automated messaging (no more unsafe SMS!).
+This is a Node script to automate the [Signal Desktop client](https://signal.org/download/). You can use it to write Signal bots for secure automated messaging (no more unsafe SMS!).
 
-It's also meant to serve as a commented reference for how to hook and orchestrate Electron apps with the Chrome DevTools Protocol (see [`Why use the Chrome DevTools Protocol?`](#why-use-the-chrome-devtools-protocol) below).
+It's also meant to serve as a commented reference for how to hook and orchestrate Electron & web apps with the Chrome DevTools Protocol (see [`Why use the Chrome DevTools Protocol?`](#why-use-the-chrome-devtools-protocol) below).
 
 ## How do I use it?
 
 * [Install the latest Node](https://nodejs.org/en/download/)
 * Clone this repo `git clone https://github.com/mandatoryprogrammer/signal-bot`
-* Install dependencies `cd signal-bot; npm install`
-* Start your Signal desktop app with the `--remote-debugging-port` flag, like so:
+* Install the dependencies `cd signal-bot; npm install`
+* Start your Signal Desktop app with the `--remote-debugging-port` flag, like so:
 
 ```
 # Note you must set it to port 9222, make sure you have no other debugging sessions
@@ -24,7 +24,7 @@ $ ./Signal --remote-debugging-port=9222
 
 ## Code Examples
 
-Send a Signal message to another Signal user with a custom Disappearing Message time:
+Send a Signal message to another Signal user with a custom [Disappearing Message](https://support.signal.org/hc/en-us/articles/360007320771-Set-and-manage-disappearing-messages) time:
 
 ```javascript
 async function main(client) {
@@ -67,13 +67,13 @@ async function message_received(client, message) {
 
 ## How does this work?
 
-This is a Node script which utilizes the Chrome Remote Debugging/[DevTools protocol](https://chromedevtools.github.io/devtools-protocol/) to hook into the Signal Desktop app and automate its functionality. This is possible because the Signal Desktop app is an Electron app, so it supports the `--remote-debugging-port` flag. This allows us to use the Chrome DevTools protocol to hook into the app's functionality and inject JavaScript, set breakpoints, etc.
+This is a Node script which utilizes [Chrome Remote Debugging](https://blog.chromium.org/2011/05/remote-debugging-with-chrome-developer.html)/the [DevTools protocol](https://chromedevtools.github.io/devtools-protocol/) to hook into the Signal Desktop app and automate its functionality. This is possible because the Signal Desktop client is an Electron app, so it supports the `--remote-debugging-port` flag. This allows us to use the Chrome DevTools protocol to hook into the app's functionality and inject JavaScript, set breakpoints, etc.
 
 ## Why use the Chrome DevTools Protocol?
 
-This project is meant to be an example of how to hook and orchestrate an Electron app, web app, or similar using the Chrome DevTools Protocol. This is quite useful because it lets you hook and call existing functions in apps to get what you want done without having to reverse engineer protocols and do all the nitty-gritty low level stuff. It is also much more scalable if you have an app that changes often to hook it at a high level. That way even if the developers completely change the underlying protocols and specs, you can easily adapt by just calling the higher-level functions.
+This project is meant to be an example of how to hook and orchestrate an Electron app, web app, or similar using the Chrome DevTools Protocol. This is quite useful because it lets you hook and call existing functions in apps to get what you want done without having to reverse engineer protocols, APIs, and the rest of the nitty-gritty low level stuff. It is also much more scalable if you have an app that changes often to hook it at a high level. Even if the developers completely change the underlying protocols and specs, you can easily adapt by just calling the higher-level functions which already implement it.
 
 In this case study of Signal Desktop for example, I didn't have to learn anything about the underlying cryptography or write a (likely insecure) client implementing it. Instead I just hook into the already-working Signal Desktop app and call its existing functions to send messages and hook inbound messages.
 
-**Note**: The downside is that the Chrome DevTools Protocol is extremely grainy and complex. This code is meant to serve as an example of how to tame some of it. Sadly there's not a lot of good reference code for Chrome DevTools automation, which was another reason I wanted to open source this example.
+**Note**: The downside is that the Chrome DevTools Protocol is extremely grainy and complex. This code is meant to serve as an example of how to tame some of it. Sadly there's not a lot of good reference code for Chrome DevTools automation outside of [Puppeteer](https://github.com/puppeteer/puppeteer), which was another reason I wanted to open source this example.
 
