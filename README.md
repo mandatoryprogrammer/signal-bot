@@ -10,15 +10,17 @@ It's also meant to serve as a commented reference for how to hook and orchestrat
 ## How do I use it?
 
 * Install the [Signal Desktop client](https://signal.org/download/) if you don't already have it.
-* [Install the latest Node](https://nodejs.org/en/download/)
+* [Install the latest Node version](https://nodejs.org/en/download/)
 * Clone this repo `git clone https://github.com/mandatoryprogrammer/signal-bot`
-* Install the dependencies `cd signal-bot; npm install`
+* Install the dependencies `cd signal-bot && npm install`
 * Start your Signal Desktop app with the `--remote-debugging-port` flag, like so:
 
 ```
 # Note you must set it to port 9222, make sure you have no other debugging sessions
 # set up so there's no conflictions.
 $ ./Signal --remote-debugging-port=9222
+
+# For OS X this is at /Applications/Signal.app/Contents/MacOS/Signal your OS may vary.
 ```
 * Modify `signal-hook.js` to do whatever you want.
 * Run this script: `node signal-hook.js` and it will hook into Signal Desktop and automate it!
