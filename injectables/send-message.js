@@ -60,9 +60,6 @@
             return null;
         }
 
-        console.info('Access key: ');
-        console.log(accessKey);
-
         // If we've never fetched user's profile, we default to what we have
         if (sealedSender === SEALED_SENDER.UNKNOWN) {
             return {
@@ -91,10 +88,8 @@
     };
 
     const options = await getSendOptions();
-    console.info('Send options:');
-    console.info(options);
 
-    const result = await textsecure.messaging.sendMessageToNumber(
+    return textsecure.messaging.sendMessageToNumber(
         id,
         JSON.parse('{{MESSAGE_BODY}}'),
         [],
@@ -107,6 +102,4 @@
         storage.get('profileKey'),
         options
     );
-    console.info('Final result');
-    console.info(result);
 })();
