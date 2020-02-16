@@ -9,6 +9,7 @@ It's also meant to serve as a commented reference for how to hook and orchestrat
 
 ## How do I use it?
 
+* Install the [Signal Desktop client](https://signal.org/download/) if you don't already have it.
 * [Install the latest Node](https://nodejs.org/en/download/)
 * Clone this repo `git clone https://github.com/mandatoryprogrammer/signal-bot`
 * Install the dependencies `cd signal-bot; npm install`
